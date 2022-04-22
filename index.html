@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div class="container">
+
+            <div class="col-6"><img class="img-fluid" src="https://hiringplatform.boolean.careers/images/logo.png" alt=""></div>
+
+            <div class="add_task my-5">
+                <input class="rounded-3 px-3 py-2 border border-primary" placeholder="Nuovo Todo" type="text" v-model="newTask" v-on:keyup.enter="addTask">
+                <button @click="addTask" class="costumButton rounded-3 px-3 py-2">Aggiungi</button>
+            </div>
+
+
+            <section class="list col-8" v-if="tasks.length> 0">
+                <h3 class="costumText">Todo list</h3>
+                <ul>
+                    <li class=" costumListItem costumText d-flex justify-content-between" v-for=" (task,index) in tasks" :class="task.done === true ? 'done' : '' ">
+                        <span class="costumText" @click="changeDone(index)">{{task.text}}</span>
+                        <i class="fa-solid fa-times-circle" @click="removeTask(index)"></i>
+                    </li>
+                </ul>
+            </section>
+            <p v-else>
+                Nothing to do today!
+            </p>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js "></script>
+        <script src="./assets/js/app.js "></script>
+</body>
+
+</html>
