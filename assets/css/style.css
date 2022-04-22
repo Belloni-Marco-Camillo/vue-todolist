@@ -4,67 +4,15 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: aquamarine;
-}
-
-.container {
-    width: 800px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.add_task {
-    margin-bottom: 4rem;
-}
-
-.add_task>input {
-    padding: 1rem;
-    border: none;
-    border-radius: 0.5rem;
-}
-
-.add_task>button {
-    padding: 1rem;
-    border: none;
-    border: radius 0.5rem;
-    ;
-}
-
-.text-red {
-    color: red;
+.main {
+    margin: 0 auto;
+    width: 50%;
 }
 
 .done {
     text-decoration: line-through;
 }
 
-.list {
-    background-color: #010A38;
-    padding: 50px;
-    border-radius: 15px;
-}
-
-.costumText {
-    color: #FFBA33;
-}
-
-.costumButton {
-    background-color: #FFBA33;
-    color: #010A38;
-}
-
-.costumInput {
-    border: 3px solid #010A38;
-}
-
-.costumListItem {
-    border-top: 1px solid #FFBA33;
-    border-bottom: 1px solid #FFBA33;
-    padding-top: 5px;
-    padding-bottom: 5px;
+.rounded-4 {
+    border-radius: 12px;
 }
