@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
         newTask: "",
         index: 0,
+        i: 0,
         doneTasks: [],
         trashTasks: [],
         tasks: [{
@@ -34,16 +35,12 @@ const app = new Vue({
 
         removeTask(index) {
             console.log("hai cliccato" + index)
-            let newTrash = this.tasks[index].text;
-            trashTasks.unshift({ text: newTrash, done: false })
+            this.trashTasks.push(this.tasks[index])
             this.tasks.splice(index, 1)
         },
 
-        tambahkan: function() {
-            keranjang.daftar.push(task);
-        },
 
-        done(index) {
+        doneTask(index) {
             if (this.tasks[index].done === false) {
                 this.tasks[index].done = true;
                 this.doneTasks.push(this.tasks[index]);

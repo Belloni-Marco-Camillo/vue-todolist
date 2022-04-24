@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-2">
                                 <i class="fa-solid fa-xmark" @click="removeTask(index)"></i>
-                                <i class="fa-solid fa-check" @click="done(index)"></i>
+                                <i class="fa-solid fa-check" @click="doneTask(index)"></i>
                             </div>
                         </li>
                     </ul>
@@ -66,7 +66,7 @@
             <div class="mt-5 bg-light p-5 rounded-4">
                 <h2>Trash</h2>
                 <ul>
-                    <li class="row fs-5 border-bottom p-2" v-for="(trashTasks, index) in trashTask" v-if="trashTasks.done = true">
+                    <li class="row fs-5 border-bottom p-2" v-for="(trashTask, index) in trashTasks" v-if="trashTasks.done = true">
                         <div class="col-10">
                             {{trashTask.text}}
                         </div>
