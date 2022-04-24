@@ -1,7 +1,10 @@
 const app = new Vue({
     el: '#app',
     data: {
-        newTask: '',
+        newTask: "",
+        index: 0,
+        doneTasks: [],
+        trashTasks: [],
         tasks: [{
                 text: 'learn 1',
                 done: false
@@ -16,8 +19,7 @@ const app = new Vue({
             }
         ]
     },
-    taskDone: [],
-    trashTasks: [],
+
     methods: {
         addTask() {
             console.log('add new task')
@@ -32,6 +34,8 @@ const app = new Vue({
 
         removeTask(index) {
             console.log("hai cliccato" + index)
+            let newTrash = this.tasks[index].text;
+            trashTasks.unshift({ text: newTrash, done: false })
             this.tasks.splice(index, 1)
         },
 
@@ -39,17 +43,15 @@ const app = new Vue({
             keranjang.daftar.push(task);
         },
 
-        changeDone(index) {
-            if (this.tasks[index].done != true) {
-                let newDone = this.tasks[index].text;
-                taskDone.unshift({ text: newDone, done: true })
-                console.log(taskDone);
-                /* this.taskDone.unshift(newDone) */
+        done(index) {
+            if (this.tasks[index].done === false) {
                 this.tasks[index].done = true;
-                //console.log("hai premuto qua");
-            } else {
+                this.doneTasks.push(this.tasks[index]);
+                console.log(this.doneTasks);
+                this.tasks.splice(index, 1);
+            } else if (this.tasks[index].done === true) {
                 this.tasks[index].done = false;
             }
-        }
+        },
     },
 });
